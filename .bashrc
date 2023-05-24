@@ -116,4 +116,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export https_proxy=http://172.22.0.1:7890
+export http_proxy=http://172.22.0.1:7890
+export all_proxy=http://172.22.0.1:7890
+
+alias v=vim
+alias python=python3
+export EDITOR=vim
+
+# 禁用C-s
+stty -ixon
 . /usr/share/autojump/autojump.sh
