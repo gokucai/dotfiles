@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 doIt() {
-  script_dir="$(realpath $(dirname $0))"
+  script_dir="$(realpath "$(dirname "$0")")"
   backup_dir="$script_dir/.dotfiles.bak"
 
   if [[ ! -d $backup_dir ]]; then
-    echo creating backup directory $backup_dir
+    echo creating backup directory "$backup_dir"
     echo 
-    mkdir $backup_dir
+    mkdir "$backup_dir"
   fi
 
   rsync --exclude "bootstrap.sh" \
@@ -25,7 +25,7 @@ doIt() {
 if [[ "$1" == "--force" || "$1" == "-f" ]]; then
   doIt
 else
-  read -p "This may overwrite existing files in your home directory. Do
+  read -r -p "This may overwrite existing files in your home directory. Do
   you wnat to continue? (y/n)" -n 1
 
   echo
